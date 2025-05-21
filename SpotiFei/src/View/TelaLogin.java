@@ -119,7 +119,10 @@ public class TelaLogin extends javax.swing.JFrame {
         Model.Usuario usuarioLogado = dao.loginUsuario(email, senha);
 
         if (usuarioLogado != null) {
+            Model.Sessao.setUsuarioLogado(usuarioLogado);
             javax.swing.JOptionPane.showMessageDialog(this, "Usuário logado com sucesso!");
+            TelaFuncoes funcoes = new TelaFuncoes();
+            funcoes.setVisible(true);
             this.dispose();
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro ao logar usuário.");
