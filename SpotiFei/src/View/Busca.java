@@ -13,6 +13,9 @@ public class Busca extends javax.swing.JFrame {
     /**
      * Creates new form Janela
      */
+    
+    private Model.Musica musicaEncontrada;
+    
     public Busca() {
         initComponents();
     }
@@ -28,13 +31,16 @@ public class Busca extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        campoBusca = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultadoBusca = new javax.swing.JTextArea();
+        botaoBuscar = new javax.swing.JButton();
+        botaoCurtir = new javax.swing.JButton();
+        botaoDescurtir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(jLabel2.getFont().deriveFont(jLabel2.getFont().getSize()+10f));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -42,18 +48,41 @@ public class Busca extends javax.swing.JFrame {
         jLabel2.setToolTipText("");
         jLabel2.setAlignmentY(0.0F);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Seu Perfil");
-
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getSize()+3f));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("🔍");
 
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        campoBusca.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        campoBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                campoBuscaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Tela de Busca");
+
+        resultadoBusca.setColumns(20);
+        resultadoBusca.setRows(5);
+        jScrollPane1.setViewportView(resultadoBusca);
+
+        botaoBuscar.setText("Buscar");
+        botaoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoBuscarActionPerformed(evt);
+            }
+        });
+
+        botaoCurtir.setText("Curtir");
+        botaoCurtir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCurtirActionPerformed(evt);
+            }
+        });
+
+        botaoDescurtir.setText("Descurtir");
+        botaoDescurtir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDescurtirActionPerformed(evt);
             }
         });
 
@@ -61,32 +90,53 @@ public class Busca extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(160, 160, 160))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(39, 39, 39)
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
+                        .addGap(158, 158, 158)
+                        .addComponent(botaoBuscar))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(botaoCurtir)
+                        .addGap(38, 38, 38)
+                        .addComponent(botaoDescurtir)))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(500, Short.MAX_VALUE))
+                    .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addComponent(botaoBuscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoCurtir)
+                    .addComponent(botaoDescurtir))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,15 +149,67 @@ public class Busca extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void campoBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoBuscaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_campoBuscaActionPerformed
+
+    private void botaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoBuscarActionPerformed
+        // TODO add your handling code here:
+        String termo = campoBusca.getText();
+        DAO.BuscaDAO dao = new DAO.BuscaDAO();
+        musicaEncontrada = dao.buscarMusica(termo);
+
+        if (musicaEncontrada != null) {
+            resultadoBusca.setText("Título: " + musicaEncontrada.getTitulo() + "\n" +
+                                "Gênero: " + musicaEncontrada.getGenero() + "\n" +
+                                "Artista: " + musicaEncontrada.getNomeArtista());
+        } else {
+            resultadoBusca.setText("Nenhuma música encontrada.");
+        }
+    }//GEN-LAST:event_botaoBuscarActionPerformed
+
+    private void botaoCurtirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCurtirActionPerformed
+        // TODO add your handling code here:
+        if (musicaEncontrada != null) {
+            int idUsuario = Model.Sessao.getIdUsuarioLogado();
+            DAO.CurtidaDAO dao = new DAO.CurtidaDAO();
+            boolean sucesso = dao.curtirMusica(idUsuario, musicaEncontrada.getIdMusica());
+
+            if (sucesso) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Música curtida com sucesso!");
+                TelaFuncoes a = new TelaFuncoes();
+                a.setVisible(true);
+                this.dispose();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Erro ao curtir música.");
+            }
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Nenhuma música selecionada.");
+        }
+    }//GEN-LAST:event_botaoCurtirActionPerformed
+
+    private void botaoDescurtirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDescurtirActionPerformed
+        // TODO add your handling code here:
+        if (musicaEncontrada != null) {
+        int idUsuario = Model.Sessao.getIdUsuarioLogado();
+        DAO.CurtidaDAO dao = new DAO.CurtidaDAO();
+        boolean sucesso = dao.descurtirMusica(idUsuario, musicaEncontrada.getIdMusica());
+
+        if (sucesso) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Música curtida com sucesso!");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao curtir música.");
+        }
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, "Nenhuma música selecionada.");
+    }
+    }//GEN-LAST:event_botaoDescurtirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,10 +248,15 @@ public class Busca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoBuscar;
+    private javax.swing.JButton botaoCurtir;
+    private javax.swing.JButton botaoDescurtir;
+    private javax.swing.JTextField campoBusca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea resultadoBusca;
     // End of variables declaration//GEN-END:variables
 }
