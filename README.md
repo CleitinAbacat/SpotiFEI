@@ -65,5 +65,3 @@ O projeto **Spotifei** consiste na construção de uma plataforma de informaçõ
 * **Apresentação ao vivo** (exceto para alunos de ORIE).
 
 ---
-
-Se quiser, posso incluir instruções para configuração do ambiente e execução do projeto. Deseja?
