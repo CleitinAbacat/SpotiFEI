@@ -1,5 +1,3 @@
-Segue o README solicitado, excluindo a parte de funcionalidades do administrador:
-
 ---
 
 # Spotifei
