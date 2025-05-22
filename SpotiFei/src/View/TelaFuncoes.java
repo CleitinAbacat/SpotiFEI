@@ -29,6 +29,7 @@ public class TelaFuncoes extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         botaoBuscar = new javax.swing.JButton();
         botaoPlaylists = new javax.swing.JButton();
+        botaoHistorico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,20 +49,28 @@ public class TelaFuncoes extends javax.swing.JFrame {
             }
         });
 
+        botaoHistorico.setText("Visualizar Historico");
+        botaoHistorico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoHistoricoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(124, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(114, 114, 114))
             .addGroup(layout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botaoBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botaoPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(135, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(114, 114, 114))
+                    .addComponent(botaoPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botaoHistorico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,7 +81,9 @@ public class TelaFuncoes extends javax.swing.JFrame {
                 .addComponent(botaoBuscar)
                 .addGap(18, 18, 18)
                 .addComponent(botaoPlaylists)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(botaoHistorico)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,6 +102,13 @@ public class TelaFuncoes extends javax.swing.JFrame {
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoPlaylistsActionPerformed
+
+    private void botaoHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoHistoricoActionPerformed
+        // TODO add your handling code here:
+        TelaHistorico a = new TelaHistorico();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botaoHistoricoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,6 +147,7 @@ public class TelaFuncoes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoBuscar;
+    private javax.swing.JButton botaoHistorico;
     private javax.swing.JButton botaoPlaylists;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

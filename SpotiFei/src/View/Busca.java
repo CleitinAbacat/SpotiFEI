@@ -169,6 +169,10 @@ public class Busca extends javax.swing.JFrame {
             resultadoBusca.setText("Título: " + musicaEncontrada.getTitulo() + "\n" +
                                 "Gênero: " + musicaEncontrada.getGenero() + "\n" +
                                 "Artista: " + musicaEncontrada.getNomeArtista());
+            int idUsuario = Model.Sessao.getIdUsuarioLogado();
+            int idMusica = musicaEncontrada.getIdMusica();
+            DAO.HistoricoDAO historicoDAO = new DAO.HistoricoDAO();
+            historicoDAO.registrarBusca(idUsuario, idMusica);
         } else {
             resultadoBusca.setText("Nenhuma música encontrada.");
         }

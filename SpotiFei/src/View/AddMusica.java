@@ -131,6 +131,9 @@ public class AddMusica extends javax.swing.JFrame {
 
         if (sucesso) {
             JOptionPane.showMessageDialog(this, "Música adicionada com sucesso!");
+            TelaFuncoes a = new TelaFuncoes();
+            a.setVisible(true);
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao adicionar música.");
         }

@@ -4,6 +4,8 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dani e Fernando
@@ -29,6 +31,9 @@ public class TelaPlaylists extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         botaoAdicionar = new javax.swing.JButton();
         botaoCriar = new javax.swing.JButton();
+        botaoEditar = new javax.swing.JButton();
+        botaoExcluir = new javax.swing.JButton();
+        botaoExcluirMusica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +53,27 @@ public class TelaPlaylists extends javax.swing.JFrame {
             }
         });
 
+        botaoEditar.setText("Editar Playlist");
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
+
+        botaoExcluir.setText("Excluir Playlist");
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirActionPerformed(evt);
+            }
+        });
+
+        botaoExcluirMusica.setText("Excluir musica");
+        botaoExcluirMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirMusicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,9 +85,12 @@ public class TelaPlaylists extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(134, 134, 134)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(botaoCriar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botaoAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoCriar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(botaoExcluirMusica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -72,8 +101,14 @@ public class TelaPlaylists extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(botaoCriar)
                 .addGap(18, 18, 18)
+                .addComponent(botaoEditar)
+                .addGap(18, 18, 18)
+                .addComponent(botaoExcluir)
+                .addGap(18, 18, 18)
                 .addComponent(botaoAdicionar)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(botaoExcluirMusica)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,6 +127,27 @@ public class TelaPlaylists extends javax.swing.JFrame {
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoCriarActionPerformed
+
+    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+        // TODO add your handling code here:
+        EditarPlaylist a = new EditarPlaylist();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botaoEditarActionPerformed
+
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
+        // TODO add your handling code here:
+        ExcluirPlaylist a = new ExcluirPlaylist();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botaoExcluirActionPerformed
+
+    private void botaoExcluirMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirMusicaActionPerformed
+        // TODO add your handling code here:
+        ExcluirMusica a = new ExcluirMusica();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botaoExcluirMusicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,6 +187,9 @@ public class TelaPlaylists extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAdicionar;
     private javax.swing.JButton botaoCriar;
+    private javax.swing.JButton botaoEditar;
+    private javax.swing.JButton botaoExcluir;
+    private javax.swing.JButton botaoExcluirMusica;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

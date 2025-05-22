@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author Dani e Fernando
  */
-public class AddMusica extends javax.swing.JFrame {
+public class ExcluirMusica extends javax.swing.JFrame {
 
     /**
-     * Creates new form AddMusica
+     * Creates new form ExcluirMusica
      */
-    public AddMusica() {
+    public ExcluirMusica() {
         initComponents();
     }
 
@@ -28,27 +28,24 @@ public class AddMusica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        campoNomePlaylist = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        campoMusica = new javax.swing.JTextField();
+        botaoExcluir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        campoNomeMusica = new javax.swing.JTextField();
-        botaoAdicionarMusica = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        campoPlaylist = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nome da playlist:");
+        jLabel1.setText("Nome da Musica");
 
-        jLabel2.setText("Nome da musica:");
-
-        botaoAdicionarMusica.setText("Adicionar");
-        botaoAdicionarMusica.addActionListener(new java.awt.event.ActionListener() {
+        botaoExcluir.setText("Excluir");
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAdicionarMusicaActionPerformed(evt);
+                botaoExcluirActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Adicionar Musicas:");
+        jLabel2.setText("Nome da Playlist");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,50 +54,48 @@ public class AddMusica extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoNomePlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoNomeMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(campoMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jLabel3)))
-                .addContainerGap(130, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(botaoAdicionarMusica)
-                .addGap(157, 157, 157))
+                        .addGap(152, 152, 152)
+                        .addComponent(botaoExcluir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(campoPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(42, 42, 42)
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNomePlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(campoMusica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNomeMusica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(campoPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
-                .addComponent(botaoAdicionarMusica)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addComponent(botaoExcluir)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoAdicionarMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdicionarMusicaActionPerformed
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         // TODO add your handling code here:
-        String nomePlaylist = campoNomePlaylist.getText();
-        String nomeMusica = campoNomeMusica.getText();
+        String nomePlaylist = campoPlaylist.getText();
+        String nomeMusica = campoMusica.getText();
+
+        if (nomePlaylist.isEmpty() || nomeMusica.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha ambos os campos.");
+            return;
+        }
 
         int idUsuario = Model.Sessao.getIdUsuarioLogado();
 
@@ -120,24 +115,17 @@ public class AddMusica extends javax.swing.JFrame {
             return;
         }
 
-        boolean jaExiste = playlistDAO.musicaJaNaPlaylist(playlist.getIdPlaylist(), musica.getIdMusica());
-
-        if (jaExiste) {
-            JOptionPane.showMessageDialog(this, "Esta música já está na playlist.");
-            return;
-        }
-
-        boolean sucesso = playlistDAO.adicionarMusicaNaPlaylist(playlist.getIdPlaylist(), musica.getIdMusica());
+        boolean sucesso = playlistDAO.removerMusicaDaPlaylist(playlist.getIdPlaylist(), musica.getIdMusica());
 
         if (sucesso) {
-            JOptionPane.showMessageDialog(this, "Música adicionada com sucesso!");
+            JOptionPane.showMessageDialog(this, "Música removida da playlist com sucesso!");
             TelaFuncoes a = new TelaFuncoes();
             a.setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Erro ao adicionar música.");
+            JOptionPane.showMessageDialog(this, "Erro ao remover música da playlist.");
         }
-    }//GEN-LAST:event_botaoAdicionarMusicaActionPerformed
+    }//GEN-LAST:event_botaoExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,30 +144,29 @@ public class AddMusica extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddMusica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirMusica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddMusica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirMusica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddMusica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirMusica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddMusica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirMusica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddMusica().setVisible(true);
+                new ExcluirMusica().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoAdicionarMusica;
-    private javax.swing.JTextField campoNomeMusica;
-    private javax.swing.JTextField campoNomePlaylist;
+    private javax.swing.JButton botaoExcluir;
+    private javax.swing.JTextField campoMusica;
+    private javax.swing.JTextField campoPlaylist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

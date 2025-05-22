@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author Dani e Fernando
  */
-public class CriarPlaylist extends javax.swing.JFrame {
+public class ExcluirPlaylist extends javax.swing.JFrame {
 
     /**
-     * Creates new form CriarPlaylist
+     * Creates new form ExcluirPlaylist
      */
-    public CriarPlaylist() {
+    public ExcluirPlaylist() {
         initComponents();
     }
 
@@ -28,18 +28,18 @@ public class CriarPlaylist extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        campoNomePlaylist = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        botaoCriar = new javax.swing.JButton();
+        campoNome = new javax.swing.JTextField();
+        botaoExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Nome da Playlist:");
 
-        botaoCriar.setText("Criar");
-        botaoCriar.addActionListener(new java.awt.event.ActionListener() {
+        botaoExcluir.setText("Excluir");
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCriarActionPerformed(evt);
+                botaoExcluirActionPerformed(evt);
             }
         });
 
@@ -47,49 +47,62 @@ public class CriarPlaylist extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoNomePlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
             .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(botaoCriar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(botaoExcluir)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNomePlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(63, 63, 63)
-                .addComponent(botaoCriar)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(botaoExcluir)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarActionPerformed
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         // TODO add your handling code here:
-        String nomePlaylist = campoNomePlaylist.getText();
-        int idUsuario = Model.Sessao.getIdUsuarioLogado();
+        String nomePlaylist = campoNome.getText();
 
+        if (nomePlaylist.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, digite o nome da playlist.");
+            return;
+        }
+
+        int idUsuario = Model.Sessao.getIdUsuarioLogado();
         DAO.PlaylistsDAO dao = new DAO.PlaylistsDAO();
-        boolean sucesso = dao.criarPlaylist(nomePlaylist, idUsuario);
+        Model.Playlist playlist = dao.buscarPlaylistPorNome(nomePlaylist, idUsuario);
+
+        if (playlist == null) {
+            JOptionPane.showMessageDialog(this, "Playlist não encontrada.");
+            return;
+        }
+
+        boolean sucesso = dao.excluirPlaylist(playlist.getIdPlaylist());
 
         if (sucesso) {
-            JOptionPane.showMessageDialog(this, "Playlist criada com sucesso!");
-            TelaPlaylists a = new TelaPlaylists();
+            JOptionPane.showMessageDialog(this, "Playlist excluída com sucesso!");
+            TelaFuncoes a = new TelaFuncoes();
             a.setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Erro ao criar playlist.");
+            JOptionPane.showMessageDialog(this, "Erro ao excluir a playlist.");
         }
-    }//GEN-LAST:event_botaoCriarActionPerformed
+    }//GEN-LAST:event_botaoExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,27 +121,27 @@ public class CriarPlaylist extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CriarPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CriarPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CriarPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CriarPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CriarPlaylist().setVisible(true);
+                new ExcluirPlaylist().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoCriar;
-    private javax.swing.JTextField campoNomePlaylist;
+    private javax.swing.JButton botaoExcluir;
+    private javax.swing.JTextField campoNome;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
