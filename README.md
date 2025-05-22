@@ -32,32 +32,4 @@ O projeto **Spotifei** consiste na construção de uma plataforma de informaçõ
 * É obrigatório o uso do **PostgreSQL**.
 * Todos os dados são persistidos no banco, ou seja, **nenhuma informação é perdida** ao encerrar o programa.
 
-## Entregáveis
-
-* Código fonte desenvolvido na **IDE NetBeans**.
-* Arquivo **.jar executável**.
-* **Javadoc** com documentação do código.
-* **Vídeo** demonstrando o funcionamento completo do projeto (3 a 5 minutos).
-* **Relatório** de 3 a 5 páginas documentando o projeto (disponibilizado via README no GitHub).
-* Repositório **GitHub privado** com commits frequentes.
-
-## Critérios de Avaliação
-
-* Implementação de todas as **funcionalidades especificadas**.
-* Uso correto dos **conceitos de orientação a objetos**.
-* Conformidade com o **diagrama de classes**.
-* **Qualidade do código**.
-* Uso adequado do **banco de dados**.
-* **Usabilidade** da interface gráfica.
-* **Vídeo explicativo** mostrando o funcionamento.
-* Relatório bem **documentado**.
-* Frequência e qualidade dos **commits no GitHub**.
-
-## Entrega Final
-
-* **Turmas Vespertino**: 22/05/2025.
-* **Turmas Noturno**: 22 e 24/05/2025.
-* Entrega via **Moodle** (arquivo .zip com todos os entregáveis).
-* **Apresentação ao vivo** (exceto para alunos de ORIE).
-
 ---
